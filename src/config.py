@@ -9,7 +9,7 @@ BASE_PATH = os.path.dirname(__file__)
 
 class PaddleConfig(BaseSettings):
     REC_MODEL_DIR = os.path.abspath("./models/en_PP-OCRv3_rec_infer")
-    REC_CHAR_DICT_PATH = os.path.abspath("./models/en_dict.txt")
+    REC_CHAR_DICT_PATH = os.path.abspath("./libs/PaddleOCR/ppocr/utils/en_dict.txt")
     DET_MODEL_DIR = os.path.abspath("./models/en_PP-OCRv3_det_infer/")
 
 

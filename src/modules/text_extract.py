@@ -18,8 +18,9 @@ class TextExtractor:
     def get_document_content(self, image):
         result = self.model(image)
         content = []
+        res = p["res"]
         for p in result:
-            if p["type"] not in ["text", "title", "header"] or not (res := p["res"]):
+            if p["type"] not in ["text", "title", "header"] or not res:
                 continue
             text = []
             for line in res:
