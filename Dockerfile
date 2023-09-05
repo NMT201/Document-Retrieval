@@ -1,19 +1,24 @@
 FROM paddlepaddle/paddle:2.5.0rc0-gpu-cuda11.7-cudnn8.4-trt8.4
 
+# COPY models models
+
+RUN apt update && apt upgrade -y \
+    && apt install git wget
+
+COPY . /docrev
+
 WORKDIR /docrev
 
 COPY requirements.txt requirements.txt
 
 RUN pip install -U pip && pip install -r requirements.txt
 
-COPY models models
+RUN git clone https://github.com/PaddlePaddle/PaddleOCR.git ./src/libs/PaddleOCR
 
-COPY . docrev
+RUN ls script
 
-RUN apt install git 
+RUN bash script/download.sh
 
-RUN git clone https://github.com/PaddlePaddle/PaddleOCR.git ./src/libs
+EXPOSE 8501
 
-EXPOSE 5000
-
-CMD ["./script/run.sh"]
+CMD ["bash", "./script/run.sh"]
