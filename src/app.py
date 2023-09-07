@@ -11,7 +11,7 @@ from fastapi_rfc7807 import middleware
 
 from src.api import routes
 
-app = FastAPI(title='Unicloud - Automatic License Plate Recognition',
+app = FastAPI(title='Document Retrival',
                 redoc_url='/api-doc', 
                 docs_url='/docs',
                 openapi_url='/openapi.json')
